@@ -1,0 +1,31 @@
+docker exec -it <container-id> /bin/bash
+
+docker exec -it <container-id> /bin/sh
+
+docker exec -it <container-id> sh
+
+ls
+
+pwd
+
+env -> list environment variables
+
+
+
+Run MongoDB Container
+docker run -d -p27017:27017 -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network mongo
+
+stop local mongo db if running coz it will conflict with docker  container
+
+Run mongo-express container for 
+docker run -d ^
+-p8081:8081 ^
+-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin ^
+-e ME_CONFIG_MONGODB_ADMINPASSWORD=password ^
+-e ME_CONFIG_MONGODB_SERVER=mongodb ^
+--net mongo-network ^
+--name mongo-express ^
+mongo-express
+
+docker-compose -f mongo.yaml up
+docker-compose -f mongo.yaml down

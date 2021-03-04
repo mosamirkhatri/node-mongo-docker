@@ -1,0 +1,58 @@
+docker run => run container from image
+docker run -d <name> => run container in detacted mode/in other words, in background
+docker run redis => To run container running redis service(example) => will run latest version
+docker run redis:4.0 => To run redis version 4.0 container => 4.0 after colan is called tag
+docker run <> => doesn't listen to standard input. can not read any input from user. It wont ask for the input. will directly give the output=> runs in non interactive mode
+docker run -i <> => To run interactively to accept input from user but wont show the prompt message if any
+docker run -it <> => To run in interactive mode with prompt message too.
+docker run -p 80:5000 <> => Port mapping, Docker Host/Engine, For Example i want my users to access my docker application on port 80, I have to map port 80 to 5000 of docker container
+docker run -v /opt/datadir:/var/lib/mysql mysql  => Volume mapping, when container is stopped and removed the container and all data in it gets lost. To persist data we have to map dir outside the container. In this case '/opt/datadir' is local dir. '/var/lib/mysql' dir inside docker container
+docker run -e APP_COLOR=blue <> => To set env variables
+
+docker inspect <> => To see the details of the container
+
+docker logs <> => for logs in docker
+
+docker ps => lists all running containers
+docker ps -a => lists all containers running or not!
+
+docket stop <with name or ID> => To stop the container
+
+docker rm <with name or ID>=> To remove the container permanently
+
+docker images => To see the list of images available in the machine
+
+docker rmi <image-name> => To remove the image 
+
+docker pull <image> => To only pull the image
+
+docker exec <container-name> <command> => To run the command on running container
+
+docker attach <ID>
+
+=> After making a docker file
+
+docker build Dockerfile -t mumshad/my-custom-app => To bild the image using dockerfile and name it my-custom-app
+
+docker push mumshad/my-custom-app => To push the image to public repo. 
+
+=> Docker File=>
+
+Instruction and Argument Format
+
+docker history <> => for history of image
+
+docker build . => to build image
+
+Network commands
+
+docker network inspect bridge => 
+
+docker network create --driver bridge --subnet 182.18.0.1/24 --gateway 182.18.0.1 wp-mysql-network => New network
+
+docker run -d -e MYSQL_ROOT_PASSWORD=db_pass123 --name mysql-db --network wp-mysql-network mysql:5.6
+
+Example:
+Deploy a web application named webapp, using image kodekloud/simple-webapp-mysql. Expose port to 38080 on the host. The application takes an environment variable DB_Host that has the hostname of the mysql database. Make sure to attach it to the newly created network wp-mysql-network
+
+docker run --network=wp-mysql-network -e DB_Host=mysql-db -e DB_Password=db_pass123 -p 38080:8080 --name webapp --link mysql-db:mysql-db -d kodekloud/simple-webapp-mysql

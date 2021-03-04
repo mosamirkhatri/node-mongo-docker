@@ -1,0 +1,81 @@
+ln command => The ln command is used to create links between files. Before going into the application of the ln command in detail, please refer the below link for a clear understanding of the hard link and soft link in Linux. Hard and Soft Links in Linux
+syntax: 
+ln [OPTION]... [-T] TARGET LINK_NAME   (1st form)
+ln [OPTION]... TARGET... DIRECTORY     (2nd form)
+ln [OPTION]... -t DIRECTORY TARGET...  (3rd form)
+
+example: point pip to pip3
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+
+==================================
+pwd => present Working directory
+for going to root folder => cd /
+
+==================================
+ls [options] [file/directory]
+ls / => for the contents of the root directory
+ls ~ => for the contents of the home directory(tilde symbol)
+ls .. => for the contents of the previous directory
+ls ../.. => two folders back
+ls -l => list directories in long list format
+drwxr => These are users rights => directory, read, write, execute, read
+after first - => group rights
+after second - => others
+ls -a => will list hidden files also
+ls -al => list all files including hidden in long list format
+ls -lS => list with sorted order
+ls *.html => list all files with perticular extention
+ls -lS > content.txt => output of the command will be saved to the contents.txt and if file not present file is automatically created.
+ls -d */ => list all the directories
+man ls => list all the available options and guides for ls
+ls -R => will give the directory structure
+=================================
+cd => land you to home dir
+cd my\ books => for folder having spaces in between like my books
+cd "my books" =>  same as above
+cd 'my books' => same as above
+=================================
+cat command => syntax => cat [options] [filename1] [filename2]...
+cat list1.txt => for displaying contents of the file
+cat list1.txt list2.txt => will display contents of both the files
+cat -b list1.txt => -b flag will be used to display contents along with the line number of non blank lines
+cat -n list1.txt => -n flag will display contents along with the line number of all the line (even the blank ones) 
+cat -s list1.txt => -s flag sqeezes the blank lines to one blank one and displays the content
+cat -E list1.txt => adds the dollar symbol at the end of each line, so that we know that its the end of the line
+==================================
+redirection in linux
+output > file => ">" symbol is used to redirect to file, like output of the command is printed in the file specified
+cat > test.txt => creates a file if not existing, and able to write the file contents, the content is overwritten
+cat >> test.txt => ">>" used to append the contents of the file
+cat file1.txt file2.txt > test.txt => a new file will be created and contents of the file will be written in new file
+cat file1.txt >> file2.txt => will append the contents of the file1 to file 2
+==================================
+mkdir
+mkdir -p path => -p is used to create the path even if it doesnt exits "--parents" can also be used
+mkdir -p names/{sam,lol,android} => multiple directories in directory names. there must not be any spaces between the commas
+==================================
+rmdir -options dirName => for removing the directory
+rmdir -p path => delete the dirs in the path
+rmdir -pv path => v is for the verbose
+rmdir won't work if the dir is not empty
+==================================
+verbose will give you the extended information => v flag is used 
+==================================
+for removing files and directory "rm" command is used
+rm -rv path => remove the whole path => -r stands for recursive
+==================================
+PACKAGE MANAGER => 
+Backend Tool: dpkg
+Frontend Tool: apt
+GUI for apt: aptitude
+==> apt package manager
+installing => apt-get install [package_name]
+uninstalling => apt-get remove [pkg_name]
+Purge => apt-get purge [pkg_name]
+update => apt-get update [pkg_name]
+
+cat /etc/*release* => Info regarding the installed OS.
+
+
+Not uninstalling urllib3 at /usr/lib/python3/dist-packages, outside environment /usr
+
